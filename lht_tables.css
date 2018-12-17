@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML and CSS, 7th Edition
+   Tutorial 6
+   Case Problem 3
+
+   Calendar Style Sheet
+   Author: Gabriel Fuentes
+   Date: 12.12.18   
+
+   Filename:   lht_tables.css
+
+*/
+
+/* ===============================
+   Mobile Styles: 0px to 640px 
+   ===============================
+*/
+@media only screen and (max-width: 640px) {
+    table, tbody, tr, td, th, caption {
+        display: block;
+    }
+
+    thead th {
+        display: none;
+    }
+
+    table caption {
+        color: white;
+        background-color: rgb(123, 123, 123);
+        font-size: 1.5em;
+        line-height: 2em;
+    }
+
+    td {
+        border: 1px dotted gray;
+        color: rgb(11, 12, 145);
+        position: relative;
+        padding-left: 40%;
+        min-height: 40px;
+    }
+
+    tr:nth-of-type(odd) {
+        background: rgb(255, 235, 178);
+        border: 2px solid gray;
+    }
+
+    td:before {
+        content: attr(data-date);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 40%;
+        padding: 5px;
+    }
+}
+/* This creates a media query so these style rules will take affect when the width is under 640 pixels. It sets certain items to not display or be displayed as block which will make it go to a new line. It also sets the postions, border, and color for many of the table elements. */
+
+
+
+/* =============================================
+   Tablet and Desktop Styles: greater than 640px
+   =============================================
+*/
+@media only screen and (min-width: 641px) {
+    table {
+        background: url(lht_photo1.png) bottom right/ 40% no-repeat;
+        border: 6px double rgb(154, 64, 3);
+        border-collapse: collapse;
+        margin: 20px auto;
+        table-layout: fixed;
+        width: 85%;
+
+    }
+
+    th, td {
+        border: 1px solid gray;
+        font-size: .85em;
+        font-weight: normal;
+        padding: 5px;
+        vertical-align: top;
+        width: 14.28%;
+        word-wrap: break-word;
+    }
+
+    td {
+        background: rgba(171, 171, 171, .6);
+        color: rgb(11, 12, 145);
+    }
+    
+
+    td[data-date^="Feb"] {
+        background: rgba(232, 214, 148, .6);
+        box-shadow: 0px 0px 20px;
+    }
+
+    table caption {
+        caption-side: top;
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 1.2em;
+        letter-spacing: 3px;
+    }
+
+    thead th {
+        background: rgb(154, 64, 3);
+        color: white;
+    }
+}
+/* This is made to make changes to the table when the width of the viewport is wider than 641 pixels. It creates it so the table has a background with it being set with a certain width, margin and border to look like a table with colors for each month and have numbers in the top left corner, with a certain font color and a top row that has a certain background color, text color, and column and row borders.  */
